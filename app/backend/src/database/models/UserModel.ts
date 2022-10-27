@@ -17,26 +17,25 @@ User.init({
     primaryKey: true,
   },
   username: {
-    type: new DataTypes.STRING(),
+    type: DataTypes.STRING,
     allowNull: false,
   },
   role: {
-    type: new DataTypes.STRING(),
+    type: DataTypes.STRING,
     allowNull: false,
   },
   email: {
-    type: new DataTypes.STRING(),
+    type: DataTypes.STRING,
     allowNull: false,
   },
   password: {
-    type: new DataTypes.STRING(),
+    type: DataTypes.STRING,
     allowNull: false,
   },
 }, {
   underscored: true,
   sequelize: db,
   modelName: 'users',
-  tableName: 'users',
   timestamps: false,
 });
 
