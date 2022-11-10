@@ -38,4 +38,17 @@ export default class MatchServices {
     });
     return matches;
   };
+
+  // static updateMatch = async (id: number, homeTeamGoals: number, awayTeamGoals: number) => {
+  //   const update = await Match.update(
+  //     { homeTeamGoals, awayTeamGoals },
+  //     {
+  //       where:
+  //       {
+  //         id,
+  //       },
+  //     },
+  //   );
+  //   return update;
+  // };
 }
