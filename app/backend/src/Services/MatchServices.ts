@@ -1,5 +1,6 @@
 import Match from '../database/models/MatchModel';
 import teams from '../database/models/TeamModel';
+// import { iCreateMatch } from './interface/ICreateMatch';
 
 export default class MatchServices {
   static getMatches = async () => {
@@ -37,6 +38,18 @@ export default class MatchServices {
       ],
     });
     return matches;
+  };
+
+  static createMatch = async (require: Match) => {
+    const { homeTeam, awayTeam, homeTeamGoals, awayTeamGoals } = require;
+    const match = await Match.create({
+      homeTeam,
+      awayTeam,
+      homeTeamGoals,
+      awayTeamGoals,
+      inProgress: true,
+    });
+    return { status: 201, match };
   };
 
   // static updateMatch = async (id: number, homeTeamGoals: number, awayTeamGoals: number) => {
