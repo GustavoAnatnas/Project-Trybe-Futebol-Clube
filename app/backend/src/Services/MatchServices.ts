@@ -52,6 +52,11 @@ export default class MatchServices {
     return { status: 201, match };
   };
 
+  static finishMatch = async (id: number) => {
+    const match = await Match.update({ inProgress: false }, { where: { id } });
+    return match;
+  };
+
   // static updateMatch = async (id: number, homeTeamGoals: number, awayTeamGoals: number) => {
   //   const update = await Match.update(
   //     { homeTeamGoals, awayTeamGoals },

@@ -19,6 +19,12 @@ export default class MatchController {
     return res.status(match.status).json(match.match);
   };
 
+  finishMatch = async (req: Request, res: Response) => {
+    const { id } = req.params;
+    await MatchServices.finishMatch(Number(id));
+    return res.status(200).json({ message: 'Finished' });
+  };
+
   // updateMatch = async (req: Request, res: Response) => {
   //   const { id } = req.params;
   //   const { homeTeamGoals, awayTeamGoals } = req.body;
