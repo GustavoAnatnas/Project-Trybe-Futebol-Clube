@@ -42,6 +42,15 @@ export default class MatchServices {
 
   static createMatch = async (require: Match) => {
     const { homeTeam, awayTeam, homeTeamGoals, awayTeamGoals } = require;
+    const teamH = await teams.findByPk(homeTeam);
+    const teamA = await teams.findByPk(awayTeam);
+    if (!teamH || !teamA) {
+      return {
+        status: 404,
+        match: { message: 'There is no team with such id!' },
+      };
+    }
+
     const match = await Match.create({
       homeTeam,
       awayTeam,
