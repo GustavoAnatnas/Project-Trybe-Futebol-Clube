@@ -1,6 +1,5 @@
 import Match from '../database/models/MatchModel';
 import teams from '../database/models/TeamModel';
-// import { iCreateMatch } from './interface/ICreateMatch';
 
 export default class MatchServices {
   static getMatches = async () => {
@@ -66,16 +65,16 @@ export default class MatchServices {
     return match;
   };
 
-  // static updateMatch = async (id: number, homeTeamGoals: number, awayTeamGoals: number) => {
-  //   const update = await Match.update(
-  //     { homeTeamGoals, awayTeamGoals },
-  //     {
-  //       where:
-  //       {
-  //         id,
-  //       },
-  //     },
-  //   );
-  //   return update;
-  // };
+  static updateMatch = async (id: number, homeTeamGoals: number, awayTeamGoals: number) => {
+    const update = await Match.update(
+      { homeTeamGoals, awayTeamGoals },
+      {
+        where:
+        {
+          id,
+        },
+      },
+    );
+    return update;
+  };
 }
