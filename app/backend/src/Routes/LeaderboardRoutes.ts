@@ -6,5 +6,6 @@ const Leaderboard = new LeaderboardController();
 
 Lrouter.get('/home', async (req, res) => Leaderboard.getHomeLeaderboard(req, res));
 Lrouter.get('/away', async (req, res) => Leaderboard.getAwayLeaderboard(req, res));
+Lrouter.get('/', async (req, res) => Leaderboard.getLeaderboard(req, res));
 
 export default Lrouter;
